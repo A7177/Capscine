@@ -1,0 +1,19 @@
+CAP'SCINÉ — prototype v0.1
+
+CONTENU
+- index.html : interface fonctionnelle
+- manifest.json : paramètres d'application installable
+- sw.js : cache de base pour le mode PWA
+
+POUR TESTER
+Ouvrir index.html dans un navigateur pour tester l'interface.
+Pour installer comme application, il faut héberger les fichiers en HTTPS. Ensuite :
+- Android : ouvrir le site dans Chrome puis menu ⋮ > Installer l'application / Ajouter à l'écran d'accueil.
+- iPhone : ouvrir le site dans Safari > Partager > Sur l'écran d'accueil.
+
+IMPORTANT
+Cette maquette ne contient aucun film complet. Les titres et résumés sont fictifs.
+Avant d'activer la lecture, obtenir les droits de diffusion et ajouter un flux vidéo autorisé.
+Les emplacements publicitaires sont des maquettes. Une vraie intégration publicitaire nécessite un compte fournisseur et le respect de ses règles.
+Pour les affiches/données TMDB avec une application qui génère des revenus publicitaires, demander d'abord une autorisation commerciale à TMDB. La licence développeur gratuite n'autorise pas l'usage commercial selon les conditions officielles.
+La publication sur les stores peut coûter de l'argent : Apple indique 99 USD/an pour son programme développeur et Google Play indique des frais d'inscription de 25 USD.

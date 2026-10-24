@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b10">
+<meta name="description" content="Cap'Sciné — découvrez des films et des séries.">
+<link rel="manifest" href="manifest.json">
+<title>Cap'Sciné — Films & Séries</title>
+<style>
+:root{--bg:#090b10;--panel:#131722;--muted:#aab1c2;--red:#e5093a;--white:#f8f9fc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:16px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{position:sticky;top:0;z-index:5;background:#090b10ed;backdrop-filter:blur(12px);padding:15px 18px;border-bottom:1px solid #ffffff12}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-size:25px;font-weight:900;letter-spacing:-1px}.brand span{color:var(--red)}.pill{border:1px solid #343948;color:#e4e7ef;border-radius:999px;padding:7px 11px;font-size:12px}
+main{max-width:1050px;margin:auto;padding:0 16px 50px}.hero{margin:18px 0 25px;border-radius:22px;overflow:hidden;min-height:245px;display:flex;align-items:end;padding:24px;background:linear-gradient(0deg,#07080cee,#07080e12),radial-gradient(circle at 75% 15%,#7e183b,#24203f 42%,#111722 78%);position:relative}
+.hero:after{content:"C+";position:absolute;right:20px;top:8px;font-size:130px;font-weight:1000;color:#ffffff12;letter-spacing:-12px}
+.hero-content{position:relative;z-index:1;max-width:550px}.eyebrow{color:#ffb7c8;text-transform:uppercase;font-size:11px;letter-spacing:2px;font-weight:800}.hero h1{font-size:clamp(28px,5vw,45px);line-height:1.02;margin:9px 0}.hero p{color:#d2d5df;max-width:440px;font-size:14px}.btn{border:0;border-radius:10px;background:var(--red);color:white;font-weight:800;padding:11px 15px;cursor:pointer}.btn.secondary{background:#ffffff15;border:1px solid #ffffff25}
+.searchrow{display:flex;gap:9px;margin:18px 0}.searchrow input{flex:1;min-width:0;background:var(--panel);border:1px solid #2c3241;color:white;padding:13px 14px;border-radius:12px;font-size:15px}
+.filters{display:flex;gap:8px;overflow:auto;padding:2px 0 12px}.filter{white-space:nowrap;border:1px solid #33394a;background:transparent;color:#d5d8e2;padding:8px 13px;border-radius:999px;cursor:pointer}.filter.active{background:#fff;color:#111;border-color:#fff}
+.sectionhead{display:flex;align-items:center;justify-content:space-between;margin:25px 0 12px}.sectionhead h2{font-size:19px;margin:0}.hint{font-size:12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.card{background:var(--panel);border:1px solid #ffffff0b;border-radius:15px;overflow:hidden;cursor:pointer;transition:transform .15s}.card:active{transform:scale(.98)}
+.poster{height:180px;display:flex;align-items:end;padding:12px;background:linear-gradient(0deg,#08090eec,transparent 75%),var(--poster,#34304c);position:relative}.poster:before{content:attr(data-symbol);position:absolute;top:15px;left:0;right:0;text-align:center;font-size:64px;filter:drop-shadow(0 5px 15px #0008)}.poster small{position:relative;background:#0008;padding:4px 7px;border-radius:6px;font-size:10px;letter-spacing:1px}
+.info{padding:11px 12px}.info h3{margin:0 0 5px;font-size:15px}.meta{font-size:12px;color:var(--muted)}.tag{display:inline-block;margin-top:8px;color:#ffb4c4;background:#e5093a1c;padding:4px 7px;border-radius:6px;font-size:10px}
+.ad-slot{margin:25px 0;border:1px dashed #42495b;border-radius:12px;padding:15px;text-align:center;color:#8f97a9;font-size:12px}.ad-slot strong{display:block;color:#c8cbd5;margin-bottom:4px}
+footer{border-top:1px solid #ffffff15;padding:20px 16px;color:#8e96a8;font-size:12px;text-align:center}
+dialog{width:min(92%,520px);background:#141824;color:white;border:1px solid #363c4b;border-radius:18px;padding:0;max-height:85vh}dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}.modalhead{padding:20px 20px 0;display:flex;justify-content:space-between;gap:10px}.modalbody{padding:0 20px 22px}.close{background:#ffffff14;color:white;border:0;border-radius:50%;width:34px;height:34px;font-size:20px}.notice{color:#b9c0cf;font-size:13px;line-height:1.5}.watchbox{background:#090b10;border-radius:12px;padding:16px;margin-top:15px;border:1px solid #303646}
+@media(min-width:650px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.poster{height:235px}.hero{min-height:300px;padding:35px}.hero p{font-size:16px}}
+</style>
+</head>
+<body>
+<header><div class="top"><div class="brand">Cap'<span>S ciné</span></div><div class="pill">FILMS · SÉRIES</div></div></header>
+<main>
+<section class="hero"><div class="hero-content"><div class="eyebrow">Votre cinéma, partout</div><h1>Les histoires<br>commencent ici.</h1><p>Explorez des films et des séries. Cap'Sciné est en phase de prototype : les vidéos seront ajoutées uniquement avec les autorisations nécessaires.</p><button class="btn" onclick="document.querySelector('#catalogue').scrollIntoView({behavior:'smooth'})">Explorer le catalogue ↓</button></div></section>
+<div class="searchrow"><input id="search" type="search" placeholder="Rechercher un film ou une série…" aria-label="Rechercher"><button class="btn" id="clear">Effacer</button></div>
+<div class="filters" id="filters"><button class="filter active" data-kind="Tous">Tout</button><button class="filter" data-kind="Film">Films</button><button class="filter" data-kind="Série">Séries</button><button class="filter" data-kind="Action">Action</button><button class="filter" data-kind="Comédie">Comédie</button><button class="filter" data-kind="Afrique">Afrique</button></div>
+<div class="sectionhead" id="catalogue"><h2>À découvrir</h2><span class="hint" id="count">6 titres</span></div>
+<div class="grid" id="grid"></div>
+<div class="ad-slot"><strong>Emplacement publicitaire</strong>La publicité réelle sera ajoutée après le choix de la plateforme publicitaire et sa validation.</div>
+<div class="sectionhead"><h2>Continuer bientôt</h2></div>
+<p class="notice">Cette première version est une maquette fonctionnelle : recherche, filtres et fiches de titres fonctionnent. Elle ne diffuse pas encore de films complets. Pour lancer le streaming, il faudra intégrer des fichiers ou flux vidéo autorisés et un hébergement adapté.</p>
+</main>
+<footer>Cap'Sciné · Prototype v0.1 · À propos · Confidentialité<br>Les données de démonstration ne représentent pas un catalogue de films disponibles en streaming.</footer>
+<dialog id="detail"><div class="modalhead"><div><div class="eyebrow" id="d-kind">DÉTAIL</div><h2 id="d-title">Titre</h2></div><button class="close" id="close" aria-label="Fermer">×</button></div><div class="modalbody"><p class="meta" id="d-meta"></p><p id="d-desc"></p><div class="watchbox"><strong>Lecture vidéo</strong><p class="notice">Aucune vidéo n'est connectée pour le moment. Pour activer « Regarder », ajoute un lien de streaming dont tu possèdes les droits ou une autorisation écrite.</p><button class="btn secondary" id="watch">Compris</button></div></div></dialog>
+<script>
+const titles=[
+{id:1,title:"Au-delà des frontières",kind:"Film",genre:"Drame",year:2025,symbol:"🌅",poster:"linear-gradient(135deg,#6e3851,#d07c58)",desc:"Un voyage inattendu pousse une jeune personne à redéfinir ses rêves et ses priorités."},
+{id:2,title:"Mission Zéro",kind:"Film",genre:"Action",year:2024,symbol:"⚡",poster:"linear-gradient(135deg,#182e50,#b44747)",desc:"Une équipe doit résoudre une énigme avant la fin du compte à rebours."},
+{id:3,title:"Les Voisins",kind:"Série",genre:"Comédie",year:2025,symbol:"🏙️",poster:"linear-gradient(135deg,#386b65,#d3a45b)",desc:"Dans un immeuble animé, chaque voisin a un secret et une histoire à raconter."},
+{id:4,title:"Teranga",kind:"Série",genre:"Afrique",year:2025,symbol:"🌍",poster:"linear-gradient(135deg,#7b492e,#dfb65b)",desc:"Une saga familiale inspirée par la solidarité, les ambitions et les liens entre générations."},
+{id:5,title:"Dernier Round",kind:"Film",genre:"Action",year:2023,symbol:"🥊",poster:"linear-gradient(135deg,#3a243f,#a84c45)",desc:"Un jeune athlète se bat pour saisir une seconde chance."},
+{id:6,title:"Le Grand Départ",kind:"Série",genre:"Drame",year:2024,symbol:"🚆",poster:"linear-gradient(135deg,#1c4761,#b6a1a0)",desc:"Des destins se croisent alors qu'un groupe prépare un nouveau départ."}
+];
+let current="Tous";
+const grid=document.getElementById("grid"), search=document.getElementById("search");
+function render(){let q=search.value.toLowerCase().trim();let data=titles.filter(t=>(current==="Tous"||t.kind===current||t.genre===current)&&(t.title+" "+t.genre+" "+t.kind+" "+t.year).toLowerCase().includes(q));grid.innerHTML="";document.getElementById("count").textContent=data.length+" titre(s)";if(!data.length){grid.innerHTML='<p class="notice">Aucun résultat. Essaie un autre mot.</p>';return}data.forEach(t=>{let el=document.createElement("article");el.className="card";el.innerHTML=`<div class="poster" style="--poster:${t.poster}" data-symbol="${t.symbol}"><small>${t.kind.toUpperCase()}</small></div><div class="info"><h3>${t.title}</h3><div class="meta">${t.year} · ${t.genre}</div><span class="tag">Fiche disponible</span></div>`;el.onclick=()=>openDetail(t);grid.appendChild(el)})}
+function openDetail(t){document.getElementById("d-kind").textContent=t.kind+" · "+t.genre;document.getElementById("d-title").textContent=t.title;document.getElementById("d-meta").textContent=t.year+" · Prototype Cap'Sciné";document.getElementById("d-desc").textContent=t.desc;document.getElementById("detail").showModal()}
+document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");current=b.dataset.kind;render()});
+search.oninput=render;document.getElementById("clear").onclick=()=>{search.value="";current="Tous";document.querySelectorAll(".filter").forEach(x=>x.classList.toggle("active",x.dataset.kind==="Tous"));render()};document.getElementById("close").onclick=()=>document.getElementById("detail").close();document.getElementById("watch").onclick=()=>document.getElementById("detail").close();render();
+if("serviceWorker" in navigator && location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(()=>{});
+</script>
+</body></html>
